@@ -3,12 +3,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import peakutils
 
-from suaBibSignal import signalMeu
+from aux import Signal
 
 #!/usr/bin/env python3
 """Show a text-mode spectrogram using live microphone data."""
-
-#Importe todas as bibliotecas
 
 
 #funcao para transformas intensidade acustica em dB
@@ -21,6 +19,7 @@ def main():
  
     #declare um objeto da classe da sua biblioteca de apoio (cedida)    
     #declare uma variavel com a frequencia de amostragem, sendo 44100
+    signal = Signal()
     
     #voce importou a bilioteca sounddevice como, por exemplo, sd. entao
     # os seguintes parametros devem ser setados:
@@ -51,7 +50,7 @@ def main():
 
     # plot do gravico  áudio vs tempo!
    
-    signal = signalMeu()
+
     ## Calcula e exibe o Fourier do sinal audio. como saida tem-se a amplitude e as frequencias
     xf, yf = signal.calcFFT(y, fs)
     plt.figure("F(y)")
